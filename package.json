@@ -33,8 +33,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --ext .js,.vue ./",
-      "git add"
+      "eslint --ext .js,.vue ./"
     ]
   }
 }
