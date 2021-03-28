@@ -3,6 +3,10 @@ module.exports = {
   description: 'Just playing around',
   theme: require.resolve('../../'),
   themeConfig: {
+    record: '浙ICP备2020035758号-2',
+    recordLink: 'https://beian.miit.gov.cn',
+    startYear: '2021',
+    author: 'Hongbusi',
     nav: [
       { text: 'blog', link: '/_posts/' },
       { text: '时间轴', link: '/timeline/' }

@@ -6,13 +6,15 @@
     <main>
       <Content />
     </main>
+    <Footer v-if="$frontmatter.home" />
   </div>
 </template>
 
 <script>
 import SearchBox from '@SearchBox';
+import Footer from '@theme/components/Footer';
 
 export default {
-  components: { SearchBox }
+  components: { SearchBox, Footer }
 }
 </script>
