@@ -22,6 +22,9 @@
     "lint-fix": "eslint --fix --ext .js,.vue ./"
   },
   "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-blog": "^1.9.4",
+    "@vuepress/plugin-search": "^1.8.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
     "eslint-plugin-vue": "^7.8.0",
