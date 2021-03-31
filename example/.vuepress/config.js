@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Hello VuePress',
+  title: 'Hongbusi',
   description: 'Just playing around',
   theme: require.resolve('../../'),
   themeConfig: {
@@ -7,6 +7,7 @@ module.exports = {
     recordLink: 'https://beian.miit.gov.cn',
     startYear: '2021',
     author: 'Hongbusi',
+    logo: 'http://xubusi.com/images/logo.png',
     nav: [
       { text: 'blog', link: '/_posts/' },
       { text: '时间轴', link: '/timeline/' }
