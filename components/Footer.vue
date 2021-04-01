@@ -5,6 +5,7 @@
       <span v-if="$themeConfig.startYear && $themeConfig.startYear != (new Date().getFullYear())">{{ $themeConfig.startYear }} - </span>
       {{ new Date().getFullYear() }}
       <span v-if="$themeConfig.author">{{ $themeConfig.author }}</span>
+      . All Rights Reserved.
     </p>
     <p v-if="$themeConfig.record">
       <a
@@ -26,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
   .footer {
     padding: 1.5rem 2.5rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--border-color);
     text-align: center;
     color: lighten($textColor, 25%);
 

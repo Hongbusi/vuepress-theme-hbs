@@ -1,16 +1,18 @@
 <template>
   <Common>
-    common
+    <Footer v-if="$frontmatter.home" />
   </Common>
 </template>
 
 <script>
 import Common from '@theme/components/Common';
+import Footer from '@theme/components/Footer';
 
 export default {
   name: 'Layout',
   components: {
-    Common
+    Common,
+    Footer
   }
 }
 </script>
