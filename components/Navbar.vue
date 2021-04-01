@@ -15,20 +15,14 @@
     </router-link>
 
     <div class="link">
-      <Mode />
+      link
     </div>
   </header>
 </template>
 
 <script>
-import Mode from '@theme/components/Mode';
-
 export default {
-  name: 'Navbar',
-
-  components: {
-    Mode
-  }
+  name: 'Navbar'
 }
 </script>
 

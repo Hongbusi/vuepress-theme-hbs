@@ -1,7 +1,7 @@
 <template>
   <div v-if="$themeConfig.modePicker !== false" class="color-picker">
     <a class="color-button" @click.prevent="showMenu = !showMenu">
-      mode
+      <hbs-icon icon-class="hbs-test" />
     </a>
     <div v-show="showMenu" class="color-picker-menu">
       <ModePicker />
