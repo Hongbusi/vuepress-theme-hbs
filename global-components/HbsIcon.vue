@@ -7,12 +7,14 @@
 <script>
 export default {
   name: 'HbsIcon',
+
   props: {
     iconClass: {
       type: String,
       required: true
     }
   },
+
   computed: {
     iconName () {
       return `#${this.iconClass}`;
