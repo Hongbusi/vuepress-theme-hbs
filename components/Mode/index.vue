@@ -1,19 +1,17 @@
 <template>
-  <div v-if="$themeConfig.modePicker !== false" :class="['color-picker', { close: showPicker }]">
-    <div class="picker-icon" @click="clickPickerIcon">
+  <div v-if="$themeConfig.modePicker !== false" :class="['color-picker-menu', { close: showPicker }]">
+    <span class="picker-icon" @click="clickPickerIcon">
       <i class="arrow" />
-    </div>
-    <div class="color-picker-menu">
-      <span class="menu-item">dark</span>
-      <span class="menu-item">auto</span>
-      <span class="menu-item">light</span>
-    </div>
+    </span>
+    <hbs-icon icon-class="hbs-dark" class="menu-item" />
+    <hbs-icon icon-class="hbs-arrow" class="menu-item" />
+    <hbs-icon icon-class="hbs-light" class="menu-item" />
   </div>
 </template>
 
 <script>
 // import ModePicker from './ModePicker';
-// import applyMode from './applyMode';
+import applyMode from './applyMode';
 
 export default {
   name: 'UserSettings',
@@ -28,21 +26,21 @@ export default {
     }
   },
 
-  // mounted () {
-  //   const themeMode = this.$themeConfig.mode || 'auto';
-  //   const { modePicker } = this.$themeConfig;
-  //   if (modePicker === false) {
-  //     if (themeMode === 'auto') {
-  //       window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
-  //         applyMode(themeMode);
-  //       });
-  //       window.matchMedia('(prefers-color-scheme: light)').addListener(() => {
-  //         applyMode(themeMode);
-  //       });
-  //     }
-  //     applyMode(themeMode);
-  //   }
-  // },
+  mounted () {
+    const themeMode = this.$themeConfig.mode || 'auto';
+    const { modePicker } = this.$themeConfig;
+    if (modePicker === false) {
+      if (themeMode === 'auto') {
+        window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
+          applyMode(themeMode);
+        });
+        window.matchMedia('(prefers-color-scheme: light)').addListener(() => {
+          applyMode(themeMode);
+        });
+      }
+      applyMode(themeMode);
+    }
+  },
 
   methods: {
     clickPickerIcon () {
@@ -53,55 +51,47 @@ export default {
 </script>
 
 <style lang="stylus">
-.color-picker {
+.color-picker-menu {
   position: fixed;
-  bottom: 0;
-  left: 4%;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
+  right: 0;
+  bottom: 50%;
+  display: flex;
   transition: transform .3s cubic-bezier(.645, .045, .355, 1);
   cursor: pointer;
 
-  .picker-icon {
-    background: #262626;
-    position: absolute;
-    top: -12px;
-    width: 32px;
-    height: 13px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    border-radius: 4px 4px 0 0;
-    box-shadow: 0 -2px 6px rgb(0 0 0 / 15%);
-    cursor: pointer;
+  .arrow {
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: green;
 
-    .arrow {
-      display: inline-block;
+    &:before,
+    &:after {
+      content: '';
+      display: block;
       position: absolute;
-      top: 50%;
-      left: calc(50% - 2.8px);
+      width: 6px;
+      height: 2px;
+      background: #fff;
       transition: transform .3s cubic-bezier(.645,.045,.355,1);
-
-      &:before,
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 6px;
-        height: 2px;
-        background: #fff;
-        transition: transform .3s cubic-bezier(.645,.045,.355,1);
-      }
-
-      &:before {
-        transform: rotate(-45deg) translateX(2px);
-      }
-
-      &:after {
-        transform: rotate(45deg) translateX(-2px);
-      }
     }
+
+    &:before {
+      transform: rotate(0) translateX(0);
+    }
+
+    &:after {
+      transform: rotate(0) translateX(0);
+    }
+  }
+
+  .menu-item {
+    font-size: 20px;
+    // width: 20px
+    // height: 20px;
   }
 
   &.close {
@@ -111,11 +101,11 @@ export default {
       transform: translateY(-3px);
 
       &:before {
-        transform: rotate(45deg) translateX(2px);
+        transform: rotate(-45deg) translateX(2px);
       }
 
       &:after {
-        transform: rotate(-45deg) translateX(-2px);
+        transform: rotate(-135deg) translateX(-2px);
       }
     }
   }
