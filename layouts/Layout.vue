@@ -1,5 +1,6 @@
 <template>
   <Common>
+    <Mode />
     container
     <Footer v-if="$frontmatter.home" />
   </Common>
@@ -8,13 +9,15 @@
 <script>
 import Common from '@theme/components/Common';
 import Footer from '@theme/components/Footer';
+import Mode from '@theme/components/Mode';
 
 export default {
   name: 'Layout',
 
   components: {
     Common,
-    Footer
+    Footer,
+    Mode
   }
 }
 </script>
