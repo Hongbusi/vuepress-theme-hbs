@@ -1,33 +1,39 @@
 <template>
-  <div v-if="$themeConfig.modePicker !== false" :class="['color-picker-menu', { close: showPicker }]">
-    <span class="picker-icon" @click="clickPickerIcon">
+  <ul v-if="$themeConfig.modePicker !== false" :class="['color-picker-menu', { close: showPicker }]">
+    <li class="menu-item" @click="clickPickerIcon">
       <i class="arrow" />
-    </span>
-    <hbs-icon icon-class="hbs-dark" class="menu-item" />
-    <hbs-icon icon-class="hbs-arrow" class="menu-item" />
-    <hbs-icon icon-class="hbs-light" class="menu-item" />
-  </div>
+    </li>
+    <li
+      v-for="(mode, index) in modeOptions"
+      :key="index"
+      class="menu-item"
+      @click="clickChangeMode(mode.mode)"
+    >
+      <hbs-icon :icon-class="`hbs-${mode.mode}`" :class="{ active: currentMode === mode.mode }" />
+    </li>
+  </ul>
 </template>
 
 <script>
-// import ModePicker from './ModePicker';
 import applyMode from './applyMode';
 
 export default {
   name: 'UserSettings',
 
-  // components: {
-  //   ModePicker
-  // },
-
   data () {
     return {
-      showPicker: true
+      showPicker: true,
+      modeOptions: [
+        { mode: 'light', title: 'light' },
+        { mode: 'auto', title: 'auto' },
+        { mode: 'dark', title: 'dark' }
+      ],
+      currentMode: 'auto'
     }
   },
 
   mounted () {
-    const themeMode = this.$themeConfig.mode || 'auto';
+    const themeMode = localStorage.getItem('mode') || this.$themeConfig.mode || 'auto';
     const { modePicker } = this.$themeConfig;
     if (modePicker === false) {
       if (themeMode === 'auto') {
@@ -38,13 +44,31 @@ export default {
           applyMode(themeMode);
         });
       }
-      applyMode(themeMode);
+    } else {
+      let that = this;
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
+        that.$data.currentMode === 'auto' && applyMode(that.$data.currentMode);
+      });
+      window.matchMedia('(prefers-color-scheme: light)').addListener(() => {
+        that.$data.currentMode === 'auto' && applyMode(that.$data.currentMode);
+      });
     }
+    this.currentMode = themeMode;
+    applyMode(themeMode);
+    localStorage.setItem('mode', themeMode);
   },
 
   methods: {
     clickPickerIcon () {
       this.showPicker = !this.showPicker;
+    },
+
+    clickChangeMode(mode) {
+      if (mode === this.currentMode) return;
+
+      this.currentMode = mode;
+      applyMode(mode);
+      localStorage.setItem('mode', mode);
     }
   }
 }
@@ -56,49 +80,60 @@ export default {
   right: 0;
   bottom: 50%;
   display: flex;
-  transition: transform .3s cubic-bezier(.645, .045, .355, 1);
+  margin: 0;
+  padding-left: 0;
   cursor: pointer;
+  transition: transform .3s cubic-bezier(.645, .045, .355, 1);
 
-  .arrow {
-    display: inline-block;
+  .menu-item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 20px;
     height: 20px;
-    background: green;
+    background-color: $accentColor;
 
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 6px;
-      height: 2px;
-      background: #fff;
+    svg {
+      color: #fff;
+    }
+
+    svg.active {
+      color: #000;
+    }
+
+    .arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(2px);
       transition: transform .3s cubic-bezier(.645,.045,.355,1);
-    }
 
-    &:before {
-      transform: rotate(0) translateX(0);
-    }
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 2px;
+        background: #fff;
+        transition: transform .3s cubic-bezier(.645,.045,.355,1);
+      }
 
-    &:after {
-      transform: rotate(0) translateX(0);
-    }
-  }
+      &:before {
+        transform: rotate(-135deg) translateX(2px);
+      }
 
-  .menu-item {
-    font-size: 20px;
-    // width: 20px
-    // height: 20px;
+      &:after {
+        transform: rotate(-45deg) translateX(-2px);
+      }
+    }
   }
 
   &.close {
-    transform: translateY(100%);
+    transform: translateX(60px);
 
     .arrow {
-      transform: translateY(-3px);
+      transform: translateX(-1px);
 
       &:before {
         transform: rotate(-45deg) translateX(2px);
@@ -107,24 +142,6 @@ export default {
       &:after {
         transform: rotate(-135deg) translateX(-2px);
       }
-    }
-  }
-
-  .color-picker-menu {
-    display: inline-block;
-    border-radius: 4px 4px 0 0;
-    overflow: hidden;
-    background: #262626;
-
-    .menu-item {
-      padding: 0 4px;
-      cursor: pointer;
-      display: inline-block;
-      border-right: 1px solid #000;
-      color: #ccc;
-      height: 24px;
-      line-height: 24px;
-      font-size: 12px;
     }
   }
 }

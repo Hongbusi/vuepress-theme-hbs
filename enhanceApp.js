@@ -8,6 +8,6 @@ export default ({
   isServer
 }) => {
   if (!isServer) {
-    addScriptToHead('//at.alicdn.com/t/font_2389959_bhhlyhnpxpt.js');
+    addScriptToHead('//at.alicdn.com/t/font_2389959_3p13bz4u4em.js');
   }
 }
