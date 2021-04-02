@@ -12,6 +12,7 @@ import Navbar from '@theme/components/Navbar'
 
 export default {
   name: 'Common',
+
   components: {
     Navbar
   }

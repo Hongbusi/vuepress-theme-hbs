@@ -7,6 +7,7 @@ export default {
   mounted() {
     this.initNoFoundPageByTencent();
   },
+
   methods: {
     initNoFoundPageByTencent() {
       const dom = document.createElement('script');
