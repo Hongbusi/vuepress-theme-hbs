@@ -1,6 +1,6 @@
 <template>
   <ul v-if="$themeConfig.modePicker !== false" :class="['color-picker-menu', { close: showPicker }]">
-    <li class="menu-item" @click="clickPickerIcon">
+    <li class="menu-item picker-icon" @click="clickPickerIcon">
       <i class="arrow" />
     </li>
     <li
@@ -9,7 +9,7 @@
       class="menu-item"
       @click="clickChangeMode(mode.mode)"
     >
-      <hbs-icon :icon-class="`hbs-${mode.mode}`" :class="{ active: currentMode === mode.mode }" />
+      <hbs-icon :icon-class="`hbs-${mode.mode}`" :class="getClass(mode.mode)" />
     </li>
   </ul>
 </template>
@@ -69,6 +69,10 @@ export default {
       this.currentMode = mode;
       applyMode(mode);
       localStorage.setItem('mode', mode);
+    },
+
+    getClass(mode) {
+      return mode === this.currentMode ? 'active' : '';
     }
   }
 }
@@ -127,6 +131,10 @@ export default {
         transform: rotate(-45deg) translateX(-2px);
       }
     }
+  }
+
+  .picker-icon {
+    border-radius: 4px 0 0 4px;
   }
 
   &.close {
