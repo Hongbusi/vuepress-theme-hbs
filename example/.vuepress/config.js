@@ -9,6 +9,10 @@ module.exports = {
     author: 'Hongbusi',
     logo: 'http://xubusi.com/images/logo.png',
     nav: [
+      { text: '测试 Nav', link: '/test/', items: [
+        { text: 'blog', link: '/_posts/' },
+        { text: '时间轴', link: '/timeline/', icon: 'hbs-date' }
+      ]},
       { text: 'blog', link: '/_posts/' },
       { text: '时间轴', link: '/timeline/', icon: 'hbs-date' }
     ],

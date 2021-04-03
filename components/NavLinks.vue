@@ -54,7 +54,7 @@ export default {
         return /^https?:/.test(repo) ? repo : `https://github.com/${repo}`;
       }
 
-      return ''
+      return '';
     }
   }
 }
