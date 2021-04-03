@@ -10,7 +10,7 @@ module.exports = {
     logo: 'http://xubusi.com/images/logo.png',
     nav: [
       { text: 'blog', link: '/_posts/' },
-      { text: '时间轴', link: '/timeline/' }
+      { text: '时间轴', link: '/timeline/', icon: 'hbs-date' }
     ],
     sidebar: {
       collapsable: false,

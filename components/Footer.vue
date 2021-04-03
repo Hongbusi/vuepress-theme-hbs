@@ -11,6 +11,7 @@
       <a
         :href="$themeConfig.recordLink || '#'"
         target="_blank"
+        rel="noopener noreferrer"
       >
         {{ $themeConfig.record }}
       </a>

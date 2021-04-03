@@ -134,7 +134,7 @@ export default {
   }
 
   .picker-icon {
-    border-radius: 4px 0 0 4px;
+    border-radius: 2px 0 0 2px;
   }
 
   &.close {

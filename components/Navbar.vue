@@ -14,15 +14,21 @@
       <span v-if="$siteTitle" ref="siteName" class="site-name">{{ $siteTitle }}</span>
     </router-link>
 
-    <div class="link">
-      link
+    <div class="links">
+      <NavLinks class="can-hide" />
     </div>
   </header>
 </template>
 
 <script>
+import NavLinks from '@theme/components/NavLinks';
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+
+  components: {
+    NavLinks
+  }
 }
 </script>
 
