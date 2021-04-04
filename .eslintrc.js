@@ -17,6 +17,8 @@ module.exports = {
         "max": 1,
         "allowFirstLine": false
       }
-    }]
+    }],
+    "vue/require-prop-types": "off",
+    "vue/require-default-prop": "off"
   }
 };
