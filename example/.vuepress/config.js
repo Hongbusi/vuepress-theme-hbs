@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hongbusi',
   description: 'Just playing around',
-  theme: require.resolve('../../'),
+  theme: require.resolve('../../packages'),
   themeConfig: {
     record: '浙ICP备2020035758号-2',
     recordLink: 'https://beian.miit.gov.cn',
