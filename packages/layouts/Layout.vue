@@ -42,6 +42,8 @@
     </Page>
 
     <Footer v-if="$frontmatter.home" />
+
+    <Mode />
   </div>
 </template>
 
@@ -51,6 +53,7 @@ import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import Footer from '@theme/components/Footer';
+import Mode from '@theme/components/Mode';
 
 import { resolveSidebarItems } from '../util'
 
@@ -62,7 +65,8 @@ export default {
     Page,
     Sidebar,
     Navbar,
-    Footer
+    Footer,
+    Mode
   },
 
   data () {
