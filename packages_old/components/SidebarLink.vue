@@ -10,6 +10,7 @@ export default {
     {
       parent: {
         $page,
+        // $site,
         $route,
         $themeConfig,
         $themeLocaleConfig

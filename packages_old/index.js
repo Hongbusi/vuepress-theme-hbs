@@ -24,6 +24,7 @@ module.exports = (options, ctx) => {
     },
 
     plugins: [
+      ['@vuepress/plugin-blog'],
       ['@vuepress/active-header-links', options.activeHeaderLinks],
       '@vuepress/search',
       '@vuepress/plugin-nprogress',

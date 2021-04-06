@@ -40,6 +40,10 @@
         <slot name="page-bottom" />
       </template>
     </Page>
+
+    <Footer v-if="$frontmatter.home" />
+
+    <Mode />
   </div>
 </template>
 
@@ -48,6 +52,9 @@ import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
+import Footer from '@theme/components/Footer';
+import Mode from '@theme/components/Mode';
+
 import { resolveSidebarItems } from '../util'
 
 export default {
@@ -57,7 +64,9 @@ export default {
     Home,
     Page,
     Sidebar,
-    Navbar
+    Navbar,
+    Footer,
+    Mode
   },
 
   data () {
