@@ -12,5 +12,13 @@ module.exports = [
         link: '/guide/test/'
       }
     ]
+  },
+  {
+    text: 'theme',
+    link: '/guide/theme/'
+  },
+  {
+    text: 'test',
+    link: '/guide/test/'
   }
 ];

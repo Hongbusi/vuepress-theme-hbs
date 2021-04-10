@@ -3,21 +3,17 @@
     class="dropdown-wrapper"
     :class="{ open }"
   >
-    <button
+    <a
       class="dropdown-title"
-      type="button"
-      :aria-label="dropdownAriaLabel"
       @click="handleDropdown"
     >
       <span class="title">{{ item.text }}</span>
       <span
         class="arrow down"
       />
-    </button>
-    <button
+    </a>
+    <a
       class="mobile-dropdown-title"
-      type="button"
-      :aria-label="dropdownAriaLabel"
       @click="setOpen(!open)"
     >
       <span class="title">{{ item.text }}</span>
@@ -25,7 +21,7 @@
         class="arrow"
         :class="open ? 'down' : 'right'"
       />
-    </button>
+    </a>
 
     <DropdownTransition>
       <ul
@@ -94,12 +90,6 @@ export default {
   data () {
     return {
       open: false
-    }
-  },
-
-  computed: {
-    dropdownAriaLabel () {
-      return this.item.ariaLabel || this.item.text
     }
   },
 
