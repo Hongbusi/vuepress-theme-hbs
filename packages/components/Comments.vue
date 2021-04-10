@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import Valine from 'valine';
-
 export default {
   name: 'Comoments',
 
@@ -42,6 +40,7 @@ export default {
 
   methods: {
     initValine () {
+      const Valine = require('valine');
       const valineOptions = {
         el: '#valine',
         placeholder: '欢迎大家在此留下你的建议和意见！',
