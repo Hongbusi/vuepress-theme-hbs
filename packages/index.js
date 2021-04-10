@@ -12,8 +12,6 @@ module.exports = (options, ctx) => {
         .some(base => themeConfig.locales[base].algolia)
   )
 
-  const enableSmoothScroll = themeConfig.smoothScroll === true
-
   return {
     alias () {
       return {
@@ -28,33 +26,40 @@ module.exports = (options, ctx) => {
       '@vuepress/search',
       '@vuepress/plugin-nprogress',
       '@vuepress/back-to-top',
+      'vuepress-plugin-smooth-scroll',
       ['container', {
         type: 'tip',
-        defaultTitle: {
-          '/': 'TIP',
-          '/zh/': '提示'
-        }
+        before: info => `<div class="custom-block tip"><p class="title">${info}</p>`,
+        after: '</div>',
+        defaultTitle: ''
       }],
       ['container', {
         type: 'warning',
-        defaultTitle: {
-          '/': 'WARNING',
-          '/zh/': '注意'
-        }
+        before: info => `<div class="custom-block warning"><p class="title">${info}</p>`,
+        after: '</div>',
+        defaultTitle: ''
       }],
       ['container', {
         type: 'danger',
-        defaultTitle: {
-          '/': 'WARNING',
-          '/zh/': '警告'
-        }
+        before: info => `<div class="custom-block danger"><p class="title">${info}</p>`,
+        after: '</div>',
+        defaultTitle: ''
+      }],
+      ['container', {
+        type: 'right',
+        defaultTitle: ''
+      }],
+      ['container', {
+        type: 'theorem',
+        before: info => `<div class="custom-block theorem"><p class="title">${info}</p>`,
+        after: '</div>',
+        defaultTitle: ''
       }],
       ['container', {
         type: 'details',
         before: info => `<details class="custom-block details">${info ? `<summary>${info}</summary>` : ''}\n`,
         after: () => '</details>\n'
-      }],
-      ['smooth-scroll', enableSmoothScroll]
+      }]
     ]
   }
 }
