@@ -1,4 +1,5 @@
 module.exports = {
+  type: 'blog',
   // 作者
   author: 'Hongbusi',
   // 备案号

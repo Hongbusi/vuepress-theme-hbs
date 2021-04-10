@@ -27,7 +27,7 @@
       </template>
     </Sidebar>
 
-    <Home v-if="$page.frontmatter.home" />
+    <component :is="homeType" v-if="$page.frontmatter.home" />
 
     <Footer v-if="$frontmatter.home" />
 
@@ -47,6 +47,7 @@
 
 <script>
 import Home from '@theme/components/Home.vue'
+import HomeBlog from '@theme/components/HomeBlog.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
@@ -58,6 +59,7 @@ export default {
 
   components: {
     Home,
+    HomeBlog,
     Page,
     Sidebar,
     Navbar,
@@ -71,6 +73,14 @@ export default {
   },
 
   computed: {
+    homeType() {
+      const { type } = this.$themeConfig || {};
+      if (type !== undefined) {
+        return type == 'blog' ? 'HomeBlog' : 'Home';
+      }
+      return 'Home';
+    },
+
     shouldShowNavbar () {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
