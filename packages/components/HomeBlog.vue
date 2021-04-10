@@ -1,6 +1,8 @@
 <template>
   <main class="home" :aria-labelledby="data.heroText !== null ? 'main-title' : null">
-    HomeBlog
+    <div class="tip-text">
+      Under development...
+    </div>
   </main>
 </template>
 
@@ -105,4 +107,9 @@ export default {
     .feature
       h2
         font-size 1.25rem
+
+.tip-text
+  margin 200px auto
+  font-size 50px
+  text-align center
 </style>

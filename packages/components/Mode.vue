@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$themeConfig.modePicker !== false" class="mode-toggle">
+  <div v-if="$themeConfig.modePicker !== false && false" class="mode-toggle">
     <div :class="['mode-toggle-track', { 'mode-toggle-track--focus': isFocus }]" @click="modeToggle">
       <div :class="['mode-item', 'mode-item--light', { 'mode-item--opacity': currentMode === 'dark' }]">
         <span class="mode-icon">🌞</span>
