@@ -1,7 +1,7 @@
 {
   "name": "vuepress-theme-hbs",
   "version": "1.0.0",
-  "description": "A simple vuepress Blog.",
+  "description": "A simple vuepress blog theme.",
   "keywords": [
     "documentation",
     "vue",

@@ -1,30 +1,14 @@
 module.exports = {
-  title: 'Hongbusi',
-  description: 'Just playing around',
+  title: 'vuepress-theme-hbs',
+  description: 'A simple vuepress blog theme.',
   theme: require.resolve('../../packages'),
   themeConfig: {
+    // 作者
+    author: 'Hongbusi',
+    // 备案号
     record: '浙ICP备2020035758号-2',
     recordLink: 'https://beian.miit.gov.cn',
-    startYear: '2021',
-    author: 'Hongbusi',
-    logo: 'http://xubusi.com/images/logo.png',
-    nav: [
-      { text: '测试 Nav', link: '/test/', items: [
-        { text: 'blog', link: '/_posts/' },
-        { text: '时间轴', link: '/timeline/', icon: 'hbs-date' }
-      ]},
-      { text: 'blog', link: '/_posts/' },
-      { text: '时间轴', link: '/timeline/', icon: 'hbs-date' }
-    ],
-    sidebar: {
-      collapsable: false,
-      '/_post/':   {
-        title: 'vuepress',
-        collapsable: false,
-        children: [
-          '/_post/'
-        ]
-      }
-    }
+    // 项目开始时间
+    startYear: '2021'
   }
 }
