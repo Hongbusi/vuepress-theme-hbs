@@ -8,16 +8,33 @@
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
+
+    <Comments :is-show-comments="isShowComments" />
   </main>
 </template>
 
 <script>
 import PageEdit from '@theme/components/PageEdit.vue'
 import PageNav from '@theme/components/PageNav.vue'
+import Comments from '@theme/components/Comments.vue';
 
 export default {
-  components: { PageEdit, PageNav },
-  props: ['sidebarItems']
+  name: 'Page',
+
+  components: {
+    PageEdit,
+    PageNav,
+    Comments
+  },
+
+  props: ['sidebarItems'],
+
+  computed: {
+    isShowComments() {
+      const { isShowComments } = this.$frontmatter;
+      return isShowComments === true;
+    }
+  }
 }
 </script>
 

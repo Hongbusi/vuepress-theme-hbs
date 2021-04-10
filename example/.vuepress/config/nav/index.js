@@ -20,5 +20,9 @@ module.exports = [
   {
     text: 'test',
     link: '/guide/test/'
+  },
+  {
+    text: '留言板',
+    link: '/other/message-board'
   }
 ];

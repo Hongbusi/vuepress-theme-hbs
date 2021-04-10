@@ -8,5 +8,9 @@ module.exports = {
   // 项目开始时间
   startYear: '2021',
   nav: require('../nav'),
-  sidebar: require('../sidebar')
+  sidebar: require('../sidebar'),
+  valineConfig: {
+    appId: 'k2FNNe4Nqi991K8zIVsPdmDf-gzGzoHsz',
+    appKey: 'lRPnfeAADoMIyhYlSaiM7WwP'
+  }
 }
