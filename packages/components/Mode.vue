@@ -9,13 +9,13 @@
       class="menu-item"
       @click="clickChangeMode(mode.mode)"
     >
-      <hbs-icon :icon="`hbs-${mode.mode}`" :class="getClass(mode.mode)" />
+      {{ mode.mode }}
     </li>
   </ul>
 </template>
 
 <script>
-import applyMode from './applyMode';
+import applyMode from '@theme/util/applyMode';
 
 export default {
   name: 'UserSettings',
