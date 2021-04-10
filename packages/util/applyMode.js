@@ -14,21 +14,22 @@ function render (mode) {
 }
 
 export default function applyMode (mode) {
-  if (mode !== 'auto') {
-    render(mode);
-    return;
-  }
+  render(mode);
+  // if (mode !== 'auto') {
+  //   render(mode);
+  //   return;
+  // }
 
-  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+  // const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-  if (isDarkMode) render('dark');
-  if (isLightMode) render('light');
+  // if (isDarkMode) render('dark');
+  // if (isLightMode) render('light');
 
-  if (!isDarkMode && !isLightMode) {
-    console.log('You specified no preference for a color scheme or your browser does not support it. I schedule dark mode during night time.');
-    const hour = new Date().getHours();
-    if (hour < 6 || hour >= 18) render('dark');
-    else render('light');
-  }
+  // if (!isDarkMode && !isLightMode) {
+  //   console.log('You specified no preference for a color scheme or your browser does not support it. I schedule dark mode during night time.');
+  //   const hour = new Date().getHours();
+  //   if (hour < 6 || hour >= 18) render('dark');
+  //   else render('light');
+  // }
 }

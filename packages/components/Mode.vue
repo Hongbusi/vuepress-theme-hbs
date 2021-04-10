@@ -1,156 +1,116 @@
 <template>
-  <ul v-if="$themeConfig.modePicker !== false" :class="['color-picker-menu', { close: showPicker }]">
-    <li class="menu-item picker-icon" @click="clickPickerIcon">
-      <i class="arrow" />
-    </li>
-    <li
-      v-for="(mode, index) in modeOptions"
-      :key="index"
-      class="menu-item"
-      @click="clickChangeMode(mode.mode)"
-    >
-      {{ mode.mode }}
-    </li>
-  </ul>
+  <div v-if="$themeConfig.modePicker !== false" class="mode-toggle">
+    <div :class="['mode-toggle-track', { 'mode-toggle-track--focus': isFocus }]" @click="modeToggle">
+      <div :class="['mode-item', 'mode-item--light', { 'mode-item--opacity': currentMode === 'dark' }]">
+        <span class="mode-icon">🌞</span>
+      </div>
+      <div :class="['mode-item', 'mode-item--dark', { 'mode-item--opacity': currentMode === 'light' }]">
+        <span class="mode-icon">🌜</span>
+      </div>
+      <div :class="['mode-thumb', { 'mode-thumb--left': currentMode === 'light' }]" />
+    </div>
+  </div>
 </template>
 
 <script>
 import applyMode from '@theme/util/applyMode';
 
 export default {
-  name: 'UserSettings',
+  name: 'Mode',
 
   data () {
     return {
-      showPicker: true,
-      modeOptions: [
-        { mode: 'light', title: 'light' },
-        { mode: 'auto', title: 'auto' },
-        { mode: 'dark', title: 'dark' }
-      ],
-      currentMode: 'auto'
+      isFocus: false,
+      currentMode: 'light',
+      timer: null
     }
   },
 
   mounted () {
-    const themeMode = localStorage.getItem('mode') || this.$themeConfig.mode || 'auto';
-    const { modePicker } = this.$themeConfig;
-    if (modePicker === false) {
-      if (themeMode === 'auto') {
-        window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
-          applyMode(themeMode);
-        });
-        window.matchMedia('(prefers-color-scheme: light)').addListener(() => {
-          applyMode(themeMode);
-        });
-      }
-    } else {
-      let that = this;
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
-        that.$data.currentMode === 'auto' && applyMode(that.$data.currentMode);
-      });
-      window.matchMedia('(prefers-color-scheme: light)').addListener(() => {
-        that.$data.currentMode === 'auto' && applyMode(that.$data.currentMode);
-      });
-    }
-    this.currentMode = themeMode;
-    applyMode(themeMode);
-    localStorage.setItem('mode', themeMode);
+    this.currentMode = localStorage.getItem('mode') || this.$themeConfig.mode || 'light';
+    this.changeMode();
   },
 
   methods: {
-    clickPickerIcon () {
-      this.showPicker = !this.showPicker;
+    modeToggle() {
+      this.currentMode = this.currentMode === 'light' ? 'dark' : 'light';
+      this.focus();
+      this.changeMode();
     },
 
-    clickChangeMode(mode) {
-      if (mode === this.currentMode) return;
-
-      this.currentMode = mode;
-      applyMode(mode);
-      localStorage.setItem('mode', mode);
+    focus() {
+      clearTimeout(this.timer);
+      this.timer = null;
+      this.isFocus = true;
+      this.timer = setTimeout(() => {
+        this.isFocus = false;
+      }, 2000);
     },
 
-    getClass(mode) {
-      return mode === this.currentMode ? 'active' : '';
+    changeMode() {
+      applyMode(this.currentMode);
+      localStorage.setItem('mode', this.currentMode);
     }
   }
 }
 </script>
 
 <style lang="stylus">
-.color-picker-menu {
-  position: fixed;
-  right: 0;
-  bottom: 50%;
-  display: flex;
-  margin: 0;
-  padding-left: 0;
-  cursor: pointer;
-  transition: transform .3s cubic-bezier(.645, .045, .355, 1);
+.mode-toggle
+  display flex
+  align-items center
+  margin-right 16px
 
-  .menu-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    background-color: $accentColor;
+  .mode-toggle-track
+    position relative
+    width 50px
+    height 24px
+    border-radius 30px
+    background-color #4d4d4d
+    transition .2s
+    cursor pointer
+    user-select none
 
-    svg {
-      color: #fff;
-    }
+    .mode-item
+      position absolute
+      top 0
+      bottom 0
+      margin auto 0
+      height 10px
+      width 10px
+      transition opacity .25s
 
-    svg.active {
-      color: #000;
-    }
+      &.mode-item--light
+        left 10px
 
-    .arrow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform: translateX(2px);
-      transition: transform .3s cubic-bezier(.645,.045,.355,1);
+      &.mode-item--dark
+        right 10px
 
-      &:before,
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 6px;
-        height: 2px;
-        background: #fff;
-        transition: transform .3s cubic-bezier(.645,.045,.355,1);
-      }
+      &.mode-item--opacity
+        opacity 0
 
-      &:before {
-        transform: rotate(-135deg) translateX(2px);
-      }
+    .mode-icon
+      display flex
+      align-items center
+      justify-content center
+      height 10px
+      width 10px
 
-      &:after {
-        transform: rotate(-45deg) translateX(-2px);
-      }
-    }
-  }
+    .mode-thumb
+      position absolute
+      top 1px
+      left 1px
+      width 22px
+      height 22px
+      box-sizing border-box
+      border 1px solid #4d4d4d
+      border-radius 50%
+      background-color #fafafa
+      transition .25s
 
-  .picker-icon {
-    border-radius: 2px 0 0 2px;
-  }
+      &.mode-thumb--left
+        left 27px
 
-  &.close {
-    transform: translateX(60px);
-
-    .arrow {
-      transform: translateX(-1px);
-
-      &:before {
-        transform: rotate(-45deg) translateX(2px);
-      }
-
-      &:after {
-        transform: rotate(-135deg) translateX(-2px);
-      }
-    }
-  }
-}
+  .mode-toggle-track--focus .mode-thumb
+    box-shadow 0 0 2px 3px $accentColor
 </style>

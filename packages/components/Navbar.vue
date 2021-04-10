@@ -26,6 +26,7 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
+      <Mode class="can-hide" />
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
@@ -41,6 +42,7 @@ import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from '@SearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
+import Mode from '@theme/components/Mode.vue';
 
 export default {
   name: 'Navbar',
@@ -49,7 +51,8 @@ export default {
     SidebarButton,
     NavLinks,
     SearchBox,
-    AlgoliaSearchBox
+    AlgoliaSearchBox,
+    Mode
   },
 
   data () {
