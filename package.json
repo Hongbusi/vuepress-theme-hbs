@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hongbusi/vuepress-theme-hbs.git"
@@ -22,7 +26,6 @@
     "lint-fix": "eslint --fix --ext .js,.vue ./"
   },
   "devDependencies": {
-    "@vuepress/plugin-blog": "^1.9.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
     "eslint-plugin-vue": "^7.8.0",
