@@ -21,6 +21,17 @@ const msgs = [
 ]
 
 export default {
+  mounted() {
+    if (this.$themeConfig.noFoundPageByTencent !== false) {
+      const dom = document.createElement('script');
+      dom.setAttribute('homePageName', 'Take me home.');
+      dom.setAttribute('homePageUrl', '/');
+      dom.setAttribute('src', '//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js');
+
+      document.body.append(dom);
+    }
+  },
+
   methods: {
     getMsg () {
       return msgs[Math.floor(Math.random() * msgs.length)]
