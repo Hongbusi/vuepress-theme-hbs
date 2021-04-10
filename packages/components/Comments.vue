@@ -44,13 +44,12 @@ export default {
     initValine () {
       const valineOptions = {
         el: '#valine',
-        placeholder: '填写邮箱可以收到回复提醒哦！',
-        notify: false,
-        verify: false,
-        avatar: 'retro',
+        placeholder: '欢迎大家在此留下你的建议和意见！',
+        avatar: 'Gravatar',
+        meta: ['nick', 'mail'],
         visitor: true,
         recordIP: false,
-        path: window.location.pathname,
+        requiredFields: ['nick', 'mail'],
         ...this.options
       };
 
@@ -64,5 +63,4 @@ export default {
   max-width 740px
   margin 0 auto
   padding 2rem 2.5rem
-
 </style>
