@@ -29,6 +29,8 @@
 
     <Home v-if="$page.frontmatter.home" />
 
+    <Footer v-if="$frontmatter.home" />
+
     <Page
       v-else
       :sidebar-items="sidebarItems"
@@ -48,6 +50,7 @@ import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
+import Footer from '@theme/components/Footer.vue';
 import { resolveSidebarItems } from '../util'
 
 export default {
@@ -57,7 +60,8 @@ export default {
     Home,
     Page,
     Sidebar,
-    Navbar
+    Navbar,
+    Footer
   },
 
   data () {
