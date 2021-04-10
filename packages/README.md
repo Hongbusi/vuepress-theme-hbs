@@ -1,3 +1,3 @@
 # vuepress-theme-hbs
 
-A simple vuepress Blog.
+A simple vuepress blog theme.
