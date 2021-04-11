@@ -57,6 +57,7 @@ export default {
   }
 }
 </script>
+
 <style lang="stylus">
 .comments-wrapper
   max-width 740px
