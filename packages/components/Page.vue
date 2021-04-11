@@ -2,7 +2,14 @@
   <main class="page">
     <slot name="top" />
 
+    <div class="page-title">
+      <h1>{{ $page.title }}</h1>
+
+      <PageInfo :page-info="$page" :show-access-number="showAccessNumber" />
+    </div>
+
     <Content class="theme-default-content" />
+
     <PageEdit />
 
     <PageNav v-bind="{ sidebarItems }" />
@@ -16,6 +23,7 @@
 <script>
 import PageEdit from '@theme/components/PageEdit.vue'
 import PageNav from '@theme/components/PageNav.vue'
+import PageInfo from '@theme/components/PageInfo.vue';
 import Comments from '@theme/components/Comments.vue';
 
 export default {
@@ -24,6 +32,7 @@ export default {
   components: {
     PageEdit,
     PageNav,
+    PageInfo,
     Comments
   },
 
@@ -33,6 +42,12 @@ export default {
     isShowComments() {
       const { isShowComments } = this.$frontmatter;
       return isShowComments === true;
+    },
+
+    showAccessNumber() {
+      const { valineConfig } = this.$themeConfig;
+
+      return valineConfig && valineConfig.visitor != false;
     }
   }
 }
@@ -42,7 +57,13 @@ export default {
 @require '../styles/wrapper.styl'
 
 .page
+  padding-top $navbarHeight
   padding-bottom 2rem
   display block
 
+  .page-title
+    @extend $wrapper
+    padding-top .5rem
+    padding-bottom .5rem
+    margin-bottom -2rem
 </style>

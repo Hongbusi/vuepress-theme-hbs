@@ -10,6 +10,7 @@ module.exports = {
   nav: require('../nav'),
   sidebar: require('../sidebar'),
   valineConfig: {
+    visitor: true,
     appId: 'k2FNNe4Nqi991K8zIVsPdmDf-gzGzoHsz',
     appKey: 'lRPnfeAADoMIyhYlSaiM7WwP'
   }
