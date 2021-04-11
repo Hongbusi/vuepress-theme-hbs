@@ -6,21 +6,25 @@
     </span>
 
     <span v-if="pageInfo.frontmatter.date">
-      <hbs-icon icon="hbs-time" />
+      <hbs-icon icon="hbs-date" />
       {{ formatDateValue(pageInfo.frontmatter.date) }}
     </span>
 
     <span v-if="showAccessNumber === true">
       <hbs-icon icon="hbs-eye" />
-      9999
-      <!-- <AccessNumber :idVal="pageInfo.path" :numStyle="numStyle" /> -->
+      <AccessNumber :page-path="pageInfo.path" />
     </span>
   </div>
 </template>
 
 <script>
+import AccessNumber from '@theme/components/AccessNumber.vue';
 export default {
   name: 'PageInfo',
+
+  components: {
+    AccessNumber
+  },
 
   props: {
     pageInfo: {
@@ -48,4 +52,6 @@ export default {
 .page-info
   span:not(:last-child)
     margin-right 1rem
+  svg
+    color #999
 </style>
