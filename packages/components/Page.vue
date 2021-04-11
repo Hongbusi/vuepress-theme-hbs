@@ -65,5 +65,5 @@ export default {
     @extend $wrapper
     padding-top .5rem
     padding-bottom .5rem
-    margin-bottom -2rem
+    margin-bottom -3rem
 </style>
