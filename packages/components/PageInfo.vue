@@ -54,6 +54,8 @@ export default {
 
 .page-info
   @extend $wrapper
+  padding-top 1rem
+  padding-bottom 1rem
   color #909090
 
   span:not(:last-child)
