@@ -2,9 +2,9 @@
   <main class="page">
     <slot name="top" />
 
-    <PageInfo :page-info="$page" :show-access-number="showAccessNumber" />
-
     <Content class="theme-default-content" />
+
+    <PageInfo :page-info="$page" :show-access-number="showAccessNumber" />
 
     <PageEdit />
 
