@@ -1,7 +1,7 @@
 <template>
   <main class="home" :aria-labelledby="data.heroText !== null ? 'main-title' : null">
     <div class="tip-text">
-      Under development...
+      正在开发中...
     </div>
   </main>
 </template>

@@ -2,11 +2,7 @@
   <main class="page">
     <slot name="top" />
 
-    <div class="page-title">
-      <h1>{{ $page.title }}</h1>
-
-      <PageInfo :page-info="$page" :show-access-number="showAccessNumber" />
-    </div>
+    <PageInfo :page-info="$page" :show-access-number="showAccessNumber" />
 
     <Content class="theme-default-content" />
 
@@ -57,13 +53,6 @@ export default {
 @require '../styles/wrapper.styl'
 
 .page
-  padding-top $navbarHeight
   padding-bottom 2rem
   display block
-
-  .page-title
-    @extend $wrapper
-    padding-top .5rem
-    padding-bottom .5rem
-    margin-bottom -3rem
 </style>
