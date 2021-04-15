@@ -58,6 +58,8 @@ export default {
   padding-bottom 1rem
   color #909090
 
+  svg
+    color #ccc
   span:not(:last-child)
     margin-right 16px
 </style>

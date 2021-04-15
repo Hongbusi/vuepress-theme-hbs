@@ -68,4 +68,7 @@ export default {
 .footer-access-number
   margin-left 1rem
   color #999
+
+  svg
+    color #ccc
 </style>
