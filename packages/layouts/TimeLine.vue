@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline-wrapper">
+  <Common class="timeline-wrapper">
     <ul class="timeline-content">
       <ModuleTransition>
         <li class="desc">{{ timeLine.title }}</li>
@@ -20,12 +20,16 @@
         </li>
       </ModuleTransition>
     </ul>
-  </div>
+  </Common>
 </template>
 
 <script>
+import Common from '../components/common.vue';
+
 export default {
   name: 'TimeLine',
+
+  components: { Common },
 
   data() {
     return {
@@ -54,6 +58,7 @@ export default {
 
 .timeline-wrapper
   @extend $wrapper
+  padding 4.6rem 2.5rem 0
 
   .timeline-content
     box-sizing border-box
@@ -69,7 +74,7 @@ export default {
       margin-left -2px
       width 4px
       height 100%
-      background var(--background-color)
+      background var(--border-color)
 
     .desc,
     .year
@@ -123,7 +128,7 @@ export default {
           &::before
             content ""
             position absolute
-            left -18px
+            left -19.2px
             top 41px
             width 6px
             height 6px
