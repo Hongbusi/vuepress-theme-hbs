@@ -27,6 +27,18 @@ module.exports = (options, ctx) => {
       '@vuepress/plugin-nprogress',
       '@vuepress/back-to-top',
       'vuepress-plugin-smooth-scroll',
+      ['@vuepress/plugin-blog', {
+        permalink: '/:regular',
+        frontmatters: [
+          {
+            id: 'timeline',
+            keys: ['timeline'],
+            path: '/timeline/',
+            layout: 'TimeLine',
+            scopeLayout: 'TimeLine'
+          }
+        ]
+      }],
       ['container', {
         type: 'tip',
         before: info => `<div class="custom-block tip"><p class="title">${info}</p>`,

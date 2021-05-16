@@ -24,5 +24,9 @@ module.exports = [
   {
     text: '留言板',
     link: '/other/message-board'
+  },
+  {
+    text: '时间轴',
+    link: '/timeline/'
   }
 ];
