@@ -1,16 +1,28 @@
 <template>
   <main class="page">
-    <slot name="top" />
+    <ModuleTransition>
+      <slot name="top" />
+    </ModuleTransition>
 
-    <Content class="theme-default-content" />
+    <ModuleTransition delay="0.08">
+      <Content class="theme-default-content" />
+    </ModuleTransition>
 
-    <PageInfo :page-info="$page" />
+    <ModuleTransition delay="0.16">
+      <PageInfo :page-info="$page" />
+    </ModuleTransition>
 
-    <PageEdit />
+    <ModuleTransition delay="0.24">
+      <PageEdit />
+    </ModuleTransition>
 
-    <PageNav v-bind="{ sidebarItems }" />
+    <ModuleTransition delay="0.32">
+      <PageNav v-bind="{ sidebarItems }" />
+    </ModuleTransition>
 
-    <slot name="bottom" />
+    <ModuleTransition delay="0.40">
+      <slot name="bottom" />
+    </ModuleTransition>
   </main>
 </template>
 
