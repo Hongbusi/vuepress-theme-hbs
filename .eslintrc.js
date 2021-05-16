@@ -18,6 +18,7 @@ module.exports = {
         "allowFirstLine": false
       }
     }],
+    "vue/singleline-html-element-content-newline": "off",
     "vue/require-prop-types": "off",
     "vue/require-default-prop": "off"
   }
