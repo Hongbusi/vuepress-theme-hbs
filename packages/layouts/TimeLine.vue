@@ -1,6 +1,6 @@
 <template>
   <Common class="timeline-wrapper">
-    <ul class="timeline-content">
+    <ul v-show="hbsShowModule" class="timeline-content">
       <ModuleTransition>
         <li class="desc">{{ timeLine.title }}</li>
       </ModuleTransition>
@@ -25,11 +25,14 @@
 
 <script>
 import Common from '../components/common.vue';
+import moduleTransitonMixin from '@theme/mixins/moduleTransiton';
 
 export default {
   name: 'TimeLine',
 
   components: { Common },
+
+  mixins: [moduleTransitonMixin],
 
   data() {
     return {

@@ -5,23 +5,23 @@
     </ModuleTransition>
 
     <ModuleTransition delay="0.08">
-      <Content class="theme-default-content" />
+      <Content v-if="hbsShowModule" class="theme-default-content" />
     </ModuleTransition>
 
     <ModuleTransition delay="0.16">
-      <PageInfo :page-info="$page" />
+      <PageInfo v-if="hbsShowModule" :page-info="$page" />
     </ModuleTransition>
 
     <ModuleTransition delay="0.24">
-      <PageEdit />
+      <PageEdit v-if="hbsShowModule" />
     </ModuleTransition>
 
     <ModuleTransition delay="0.32">
-      <PageNav v-bind="{ sidebarItems }" />
+      <PageNav v-if="hbsShowModule" v-bind="{ sidebarItems }" />
     </ModuleTransition>
 
     <ModuleTransition delay="0.40">
-      <slot name="bottom" />
+      <slot v-if="hbsShowModule" name="bottom" />
     </ModuleTransition>
   </main>
 </template>
@@ -40,7 +40,7 @@ export default {
     PageInfo
   },
 
-  props: ['sidebarItems']
+  props: ['sidebarItems', 'hbsShowModule']
 }
 </script>
 

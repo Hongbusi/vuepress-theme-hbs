@@ -7,6 +7,7 @@
     <Page
       v-else
       :sidebar-items="sidebarItems"
+      :hbs-show-module="hbsShowModule"
     >
       <template #top>
         <slot name="page-top" />
@@ -24,7 +25,9 @@ import HomeBlog from '@theme/components/HomeBlog.vue'
 import Page from '@theme/components/Page.vue'
 import Footer from '@theme/components/Footer.vue';
 import Common from '../components/common.vue';
-import { resolveSidebarItems } from '../util'
+import { resolveSidebarItems } from '../util';
+import moduleTransitonMixin from '@theme/mixins/moduleTransiton';
+
 
 export default {
   name: 'Layout',
@@ -36,6 +39,8 @@ export default {
     Footer,
     Common
   },
+
+  mixins: [moduleTransitonMixin],
 
   computed: {
     homeType() {
