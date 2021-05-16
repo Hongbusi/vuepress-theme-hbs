@@ -5,10 +5,6 @@
       <span v-if="$themeConfig.startYear && $themeConfig.startYear != (new Date().getFullYear())">{{ $themeConfig.startYear }} - </span>
       {{ new Date().getFullYear() }}
       <span v-if="$themeConfig.author">{{ $themeConfig.author }}</span>
-      <span v-show="showAccessNumber" class="footer-access-number">
-        <hbs-icon icon="hbs-eye" />
-        <AccessNumber page-path="/" />
-      </span>
     </p>
     <p v-if="$themeConfig.record">
       <a
@@ -19,30 +15,12 @@
         {{ $themeConfig.record }}
       </a>
     </p>
-
-    <Comments :is-show-comments="false" />
   </div>
 </template>
 
 <script>
-import AccessNumber from '@theme/components/AccessNumber.vue';
-import Comments from '@theme/components/Comments.vue';
-
 export default {
-  name: 'Footer',
-
-  components: {
-    AccessNumber,
-    Comments
-  },
-
-  computed: {
-     showAccessNumber() {
-      const { valineConfig } = this.$themeConfig;
-
-      return valineConfig && valineConfig.visitor != false;
-    }
-  }
+  name: 'Footer'
 }
 </script>
 
@@ -64,11 +42,4 @@ export default {
 
   > span
     margin-left 1rem
-
-.footer-access-number
-  margin-left 1rem
-  color #999
-
-  svg
-    color #ccc
 </style>

@@ -9,10 +9,5 @@ module.exports = {
   startYear: '2021',
   nav: require('../nav'),
   sidebar: require('../sidebar'),
-  timeLine: require('../timeLine'),
-  valineConfig: {
-    visitor: true,
-    appId: 'k2FNNe4Nqi991K8zIVsPdmDf-gzGzoHsz',
-    appKey: 'lRPnfeAADoMIyhYlSaiM7WwP'
-  }
+  timeLine: require('../timeLine')
 }

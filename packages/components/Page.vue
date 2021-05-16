@@ -4,15 +4,13 @@
 
     <Content class="theme-default-content" />
 
-    <PageInfo :page-info="$page" :show-access-number="showAccessNumber" />
+    <PageInfo :page-info="$page" />
 
     <PageEdit />
 
     <PageNav v-bind="{ sidebarItems }" />
 
     <slot name="bottom" />
-
-    <Comments :is-show-comments="isShowComments" />
   </main>
 </template>
 
@@ -20,7 +18,6 @@
 import PageEdit from '@theme/components/PageEdit.vue'
 import PageNav from '@theme/components/PageNav.vue'
 import PageInfo from '@theme/components/PageInfo.vue';
-import Comments from '@theme/components/Comments.vue';
 
 export default {
   name: 'Page',
@@ -28,24 +25,10 @@ export default {
   components: {
     PageEdit,
     PageNav,
-    PageInfo,
-    Comments
+    PageInfo
   },
 
-  props: ['sidebarItems'],
-
-  computed: {
-    isShowComments() {
-      const { isShowComments } = this.$frontmatter;
-      return isShowComments === true;
-    },
-
-    showAccessNumber() {
-      const { valineConfig } = this.$themeConfig;
-
-      return valineConfig && valineConfig.visitor != false;
-    }
-  }
+  props: ['sidebarItems']
 }
 </script>
 

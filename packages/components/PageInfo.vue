@@ -9,23 +9,12 @@
       <hbs-icon icon="hbs-date" />
       {{ formatDateValue(pageInfo.frontmatter.date) }}
     </span>
-
-    <span v-if="showAccessNumber === true">
-      <hbs-icon icon="hbs-eye" />
-      <AccessNumber :page-path="pageInfo.path" />
-    </span>
   </div>
 </template>
 
 <script>
-import AccessNumber from '@theme/components/AccessNumber.vue';
-
 export default {
   name: 'PageInfo',
-
-  components: {
-    AccessNumber
-  },
 
   props: {
     pageInfo: {
@@ -33,11 +22,6 @@ export default {
       default () {
         return {}
       }
-    },
-
-    showAccessNumber: {
-      type: Boolean,
-      default: false
     }
   },
 
