@@ -2,6 +2,7 @@
 
 - [新增]：ModuleTransition 动画
 - [新增]：TimeLine（时间轴）
+- [优化]：抽离 Common 组件
 
 # v1.0.4 (2021-04-13)
 
