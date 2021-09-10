@@ -1,0 +1,12 @@
+{
+  "name": "vuepress-theme-hbs",
+  "author": "Hongbusi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hongbusi/vuepress-theme-hbs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hongbusi/vuepress-theme-hbs/issues"
+  },
+  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme"
+}
