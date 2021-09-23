@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Hongbusi/vuepress-theme-hbs/issues"
   },
-  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme"
+  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }
