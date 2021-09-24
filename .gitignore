@@ -1,5 +1,6 @@
 node_modules
 dist
+lib
 
 # Lock files
 package-lock.json
