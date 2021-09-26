@@ -1,8 +1,4 @@
 {
-  "name": "vuepress-theme-hbs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "private": true,
   "workspaces": [
     "packages"
@@ -11,17 +7,6 @@
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hongbusi/vuepress-theme-hbs.git"
-  },
-  "keywords": [],
-  "author": "Hongbusi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hongbusi/vuepress-theme-hbs/issues"
-  },
-  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme",
   "devDependencies": {
     "vuepress": "^2.0.0-beta.26"
   }
