@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "private": true,
-  "workspaces": [
-    "packages/vuepress-theme-hbs"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/Hongbusi/vuepress-theme-hbs/issues"
   },
-  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme",
-  "devDependencies": {
-    "lerna": "^4.0.0"
-  }
+  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme"
 }
