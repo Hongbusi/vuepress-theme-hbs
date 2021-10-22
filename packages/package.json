@@ -12,5 +12,8 @@
   "files": [
     "src"
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^2.2.17"
+  }
 }
