@@ -1,9 +1,7 @@
 <template>
   <the-header />
 
-  <div class="container">
-    <slot name="body" />
-  </div>
+  <slot name="body" />
 
   <the-footer />
 </template>
