@@ -3,8 +3,8 @@
     <nav class="container mx-auto h-full flex justify-between items-center text-white">
       <div class="cursor-pointer">Logo</div>
       <ul class="flex h-full">
-        <li v-for="(item, index) in 4" :key="index" class="px-4 h-full hover:bg-gray-500 hover:bg-opacity-20 transition-colors">
-          <a href="/" class="flex items-center h-full">
+        <li v-for="(item, index) in 4" :key="index">
+          <a href="/" class="flex items-center px-4 h-full hover:bg-gray-500 hover:bg-opacity-20 transition-color">
             <span>首页</span>
           </a>
         </li>
