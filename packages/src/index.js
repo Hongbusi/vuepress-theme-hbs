@@ -1,5 +1,5 @@
 const { path } = require('@vuepress/utils');
-const tailwindConfig = require('../tailwindcss');
+const tailwindConfig = require('./tailwindcss');
 
 const hbsTheme = {
   name: 'vuepress-theme-hbs',
