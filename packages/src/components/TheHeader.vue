@@ -1,6 +1,6 @@
 <template>
   <header class="bg-transparent" :class="visible ? 'fixed top-0 left-0 w-full bg-red-500' : 'relative'" style="height: 64px;">
-    <nav class="container mx-auto h-full flex justify-between items-center text-white">
+    <nav class="container h-full flex justify-between items-center text-white">
       <div class="cursor-pointer">Hongbusi</div>
       <ul class="flex h-full">
         <li v-for="(item, index) in 4" :key="index">
@@ -17,7 +17,6 @@
 
 <script>
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
-// import { useThemeLocaleData } from '@vuepress/plugin-theme-data/lib/client';
 
 import GitLink from './GitLink.vue';
 
@@ -27,10 +26,6 @@ export default defineComponent({
   components: { GitLink },
 
   setup() {
-    // const themeLocaleData = useThemeLocaleData();
-
-    // console.log(themeLocaleData);
-
     const visibilityHeight = 100;
     const visible = ref(false);
 

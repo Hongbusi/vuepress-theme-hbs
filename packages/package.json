@@ -14,6 +14,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
+    "@vuepress/plugin-theme-data": "^2.0.0-beta.26",
     "tailwindcss": "^2.2.17"
   }
 }
