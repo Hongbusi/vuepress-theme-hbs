@@ -1,4 +1,5 @@
 const { path } = require('@vuepress/utils');
+const tailwindConfig = require(path.resolve(__dirname, '../tailwind.config.js'));
 
 const hbsTheme = {
   name: 'vuepress-theme-hbs',
@@ -11,12 +12,25 @@ const hbsTheme = {
     postcss: {
       postcssOptions: {
         plugins: [
-          require('tailwindcss'),
+          require('tailwindcss')(tailwindConfig),
           require('autoprefixer')
         ]
       }
     }
-  }
+  },
+  // onInitialized(app) {
+  //   app.options.bundlerConfig = {
+  //     postcss: {
+  //       postcssOptions: {
+  //         plugins: {
+  //           tailwindcss: tailwindConfig,
+  //           autoprefixer: {}
+  //         }
+  //       }
+  //     },
+  //     ...app.options.bundlerConfig
+  //   }
+  // }
 }
 
 module.exports = hbsTheme;
