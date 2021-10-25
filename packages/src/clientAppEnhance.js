@@ -1,6 +1,6 @@
 import { defineClientAppEnhance } from '@vuepress/client';
 
-import './styles/index.css';
+import 'tailwindcss/tailwind.css';
 
 export default defineClientAppEnhance(({ app, router, siteData }) => {
 
