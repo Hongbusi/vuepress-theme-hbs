@@ -1,4 +1,4 @@
-module.exports = {
+export const tailwindConfig = {
   purge: ['./src/**/*.vue'],
   darkMode: false, // or 'media' or 'class'
   theme: {

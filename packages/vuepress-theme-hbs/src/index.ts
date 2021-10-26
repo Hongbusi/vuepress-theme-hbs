@@ -1,13 +1,16 @@
-const { path } = require('@vuepress/utils');
-const tailwindConfig = require('./tailwindcss');
+import { path } from '@vuepress/utils';
+import { tailwindConfig } from './node';
 
 const hbsTheme = {
   name: 'vuepress-theme-hbs',
+
   layouts: {
-    Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
-    404: path.resolve(__dirname, 'layouts/404.vue')
+    Layout: path.resolve(__dirname, './client/layouts/Layout.vue'),
+    404: path.resolve(__dirname, './client/layouts/404.vue')
   },
-  clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhance.js'),
+
+  clientAppEnhanceFiles: path.resolve(__dirname, './client/clientAppEnhance.js'),
+
   onInitialized(app) {
     app.options.bundlerConfig = {
       postcss: {
@@ -23,4 +26,4 @@ const hbsTheme = {
   }
 }
 
-module.exports = hbsTheme;
+export default hbsTheme;
