@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Hongbusi/vuepress-theme-hbs/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "tailwindcss": "^2.2.17"
   }
 }
