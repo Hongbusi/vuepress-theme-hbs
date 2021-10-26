@@ -1,13 +1,21 @@
 {
   "private": true,
   "workspaces": [
-    "packages"
+    "packages/*"
   ],
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
   "devDependencies": {
+    "lerna": "^4.0.0",
     "vuepress": "^2.0.0-beta.26"
-  }
+  },
+  "name": "vuepress-theme-hbs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Hongbusi/vuepress-theme-hbs.git",
+  "author": "Hongbusi <q951686662@qq.com>",
+  "license": "MIT"
 }

@@ -1,0 +1,26 @@
+{
+  "name": "vuepress-theme-hbs",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Hongbusi <q951686662@qq.com>",
+  "homepage": "https://github.com/Hongbusi/vuepress-theme-hbs#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": "git+https://github.com/Hongbusi/vuepress-theme-hbs.git",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Hongbusi/vuepress-theme-hbs/issues"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.2.17"
+  }
+}
