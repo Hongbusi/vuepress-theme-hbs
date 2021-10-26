@@ -1,4 +1,5 @@
 import { path } from '@vuepress/utils';
+import { createPage } from '@vuepress/core';
 import { tailwindConfig } from './node';
 
 const hbsTheme = (options, app) => {
@@ -7,12 +8,14 @@ const hbsTheme = (options, app) => {
 
     layouts: {
       Layout: path.resolve(__dirname, './client/layouts/Layout.vue'),
+      GitStars: path.resolve(__dirname, './client/layouts/GitStars.vue'),
       404: path.resolve(__dirname, './client/layouts/404.vue')
     },
 
     clientAppEnhanceFiles: path.resolve(__dirname, './client/clientAppEnhance.js'),
 
-    onInitialized(app) {
+    async onInitialized(app) {
+      // tailwindcss
       app.options.bundlerConfig = {
         postcss: {
           postcssOptions: {
@@ -23,6 +26,17 @@ const hbsTheme = (options, app) => {
           }
         },
         ...app.options.bundlerConfig
+      }
+
+      // git stars
+      if (app.pages.every((page) => page.path !== '/git-stars')) {
+        const gitStarsPage = await createPage(app, {
+          path: '/git-stars',
+          frontmatter: {
+            layout: 'GitStars'
+          }
+        })
+        app.pages.push(gitStarsPage);
       }
     },
 

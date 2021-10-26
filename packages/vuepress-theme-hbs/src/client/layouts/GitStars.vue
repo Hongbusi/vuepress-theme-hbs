@@ -3,7 +3,7 @@
     <template #body>
       <div class="bg-green-400 w-full h-80" style="margin-top: -64px;"></div>
       <div class="container">
-        <Content />
+        git stars
       </div>
     </template>
   </Common>
@@ -14,7 +14,7 @@ import { defineComponent } from 'vue';
 import Common from '../components/Common.vue';
 
 export default defineComponent({
-  name: 'Layout',
+  name: 'GitStars',
 
   components: { Common }
 });

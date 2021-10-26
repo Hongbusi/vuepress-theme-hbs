@@ -2,6 +2,9 @@ export const tailwindConfig = {
   purge: ['./src/**/*.vue'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    minHeight: {
+      '666': '666px'
+    },
     extend: {}
   },
   variants: {

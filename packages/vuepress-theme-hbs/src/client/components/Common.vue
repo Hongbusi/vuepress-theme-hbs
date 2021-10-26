@@ -1,7 +1,9 @@
 <template>
   <the-header />
 
-  <slot name="body" />
+  <div class="min-h-666">
+    <slot name="body" />
+  </div>
 
   <the-footer />
 </template>
