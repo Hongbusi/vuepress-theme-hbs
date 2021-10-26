@@ -4,7 +4,7 @@
       <div class="cursor-pointer">Hongbusi</div>
       <ul class="flex h-full">
         <li v-for="(item, index) in navbar" :key="index">
-          <a href="/" class="flex items-center px-4 h-full hover:bg-gray-500 hover:bg-opacity-20 transition-color">
+          <a :href="item.link" class="flex items-center px-4 h-full hover:bg-gray-500 hover:bg-opacity-20 transition-color">
             <span>{{ item.text }}</span>
           </a>
         </li>
