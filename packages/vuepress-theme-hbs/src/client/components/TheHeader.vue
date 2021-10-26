@@ -3,9 +3,9 @@
     <nav class="container h-full flex justify-between items-center text-white">
       <div class="cursor-pointer">Hongbusi</div>
       <ul class="flex h-full">
-        <li v-for="(item, index) in 4" :key="index">
+        <li v-for="(item, index) in navbar" :key="index">
           <a href="/" class="flex items-center px-4 h-full hover:bg-gray-500 hover:bg-opacity-20 transition-color">
-            <span>首页</span>
+            <span>{{ item.text }}</span>
           </a>
         </li>
       </ul>
@@ -15,8 +15,10 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
+
+import { useThemeLocaleData } from '@vuepress/plugin-theme-data/lib/client';
 
 import GitLink from './GitLink.vue';
 
@@ -26,6 +28,9 @@ export default defineComponent({
   components: { GitLink },
 
   setup() {
+    const themeLocaleData = useThemeLocaleData();
+    const navbar = themeLocaleData.value.navbar;
+
     const visibilityHeight = 100;
     const visible = ref(false);
 
@@ -44,7 +49,8 @@ export default defineComponent({
     });
 
     return {
-      visible
+      visible,
+      navbar
     }
   }
 });
