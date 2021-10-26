@@ -1,7 +1,9 @@
 node_modules
 dist
+lib
 .temp
 .cache
+packages/**/tsconfig.build.tsbuildinfo
 
 # Lock files
 package-lock.json

@@ -12,10 +12,10 @@ const hbsTheme = {
     app.options.bundlerConfig = {
       postcss: {
         postcssOptions: {
-          plugins: {
-            tailwindcss: tailwindConfig,
-            autoprefixer: {}
-          }
+          plugins: [
+            ['tailwindcss', tailwindConfig],
+            ['autoprefixer', {}]
+          ]
         }
       },
       ...app.options.bundlerConfig
